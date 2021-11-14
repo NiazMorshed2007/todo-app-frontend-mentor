@@ -1,5 +1,6 @@
 import React, { FC, FormEvent, useState } from "react";
 import bannerDark from "./assets/bg-desktop-dark.jpg";
+import bannerLight from "./assets/bg-desktop-light.jpg";
 import sun from "./assets/icon-sun.svg";
 import moon from "./assets/icon-moon.svg";
 import Todo from "./component/Todo";
@@ -56,7 +57,7 @@ const App: FC = () => {
   return (
     <div className={`App ${darkMode && "dark-mode"}`}>
       <div className="banner">
-        <img src={bannerDark} alt="" />
+        <img src={darkMode ? bannerDark : bannerLight} alt="" />
       </div>
       <div className="main-wrapper">
         <header>
