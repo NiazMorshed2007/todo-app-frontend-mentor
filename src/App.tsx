@@ -3,7 +3,7 @@ import bannerDark from "./assets/bg-desktop-dark.jpg";
 import sun from "./assets/icon-sun.svg";
 import moon from "./assets/icon-moon.svg";
 import Todo from "./component/Todo";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { BsCircle } from "react-icons/bs";
 
 interface ITodo {

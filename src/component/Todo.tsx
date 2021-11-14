@@ -1,6 +1,4 @@
 import React, { FC, useState } from "react";
-import cross from "../assets/icon-cross.svg";
-import completed from "../assets/icon-check.svg";
 import { BsCircle, MdOutlineClear, BsCheckCircle } from "react-icons/all";
 
 interface Props {
