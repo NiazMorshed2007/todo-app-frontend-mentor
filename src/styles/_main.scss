@@ -1,0 +1,175 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  transition: background 0.2s ease-in-out;
+  .banner {
+    height: 35%;
+    overflow: hidden;
+  }
+  //   background-color: darkblue;
+  .main-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 430px;
+    header {
+      @include flex(row);
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      color: white;
+      h2 {
+        letter-spacing: 8px;
+      }
+      .mode {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    .add {
+      form {
+        label {
+          height: 100%;
+          position: relative;
+          .task-icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-30%);
+            svg {
+              color: silver;
+            }
+          }
+          input {
+            padding: 10px;
+            padding-left: 36px;
+            height: 45px;
+            outline: none;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .todos-wrapper {
+      background: white;
+      border-radius: 4px;
+      margin-top: 20px;
+      height: 380px;
+      overflow: auto;
+      transition: all 0.2s ease-in-out;
+      @include customScrollBar;
+      position: relative;
+      box-shadow: -1px 2px 9px 2px #c4c4c4;
+      .footer {
+        position: fixed;
+        width: 100%;
+        bottom: -0.5px;
+        left: 0;
+        height: 45px;
+        padding: 15px;
+        border-top: 1px solid silver;
+        background: white;
+        @include flex(row);
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        .filters {
+          @include flex(row);
+          align-items: center;
+          gap: 1em;
+          text-transform: capitalize;
+          .active-filter {
+            color: blue;
+          }
+        }
+        .pointer {
+          cursor: pointer;
+        }
+      }
+      .inner-todos {
+        @include flex(column);
+        margin-bottom: 45px;
+        .single-todo {
+          width: 100%;
+          height: 45px;
+          border-bottom: 1px solid rgb(228, 228, 228);
+          padding: 5px 8px;
+          @include flex(row);
+          position: relative;
+          gap: 1.1em;
+          align-items: center;
+          cursor: pointer;
+          svg {
+            color: silver;
+            font-size: 22px;
+          }
+          .completed {
+            background: rgb(63, 94, 251);
+            background: radial-gradient(
+              circle,
+              rgba(63, 94, 251, 1) 22%,
+              rgba(252, 70, 107, 1) 100%,
+              rgba(252, 70, 107, 1) 100%
+            );
+            border-radius: 50%;
+          }
+          &:hover {
+            background: rgb(241, 241, 241);
+            .del {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+          .del {
+            position: absolute;
+            right: 18px;
+            opacity: 0;
+            visibility: hidden;
+            img {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dark-mode {
+  background: $dark;
+  .main-wrapper {
+    .add > form > label > input {
+      background: $dark;
+      color: white;
+    }
+    .todos-wrapper {
+      background: $dark;
+      color: white;
+      .footer {
+        background: $dark;
+        .filters {
+          .active-filter {
+            color: silver;
+          }
+        }
+      }
+      .inner-todos {
+        .single-todo {
+          &:hover {
+            background: rgba($color: rgb(114, 114, 114), $alpha: 0.1);
+          }
+        }
+      }
+    }
+  }
+}
